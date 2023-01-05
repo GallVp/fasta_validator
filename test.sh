@@ -6,6 +6,10 @@ echo "Testing a good fasta file. Should return 0"
 ./fasta_validate test/good.fasta;
 echo "Returned: $?"
 
+echo "Testing a good fasta file with stop codons. Should return 0"
+./fasta_validate test/good_with_stop_codons.fasta;
+echo "Returned: $?"
+
 echo "Testing another good fasta file. Should return 0"
 ./fasta_validate test/good_mixed.fasta;
 echo "Returned: $?"
@@ -29,6 +33,10 @@ echo "Returned: $?"
 
 echo "A fasta file with duplicate ids even though there are spaces"
 ./fasta_validate -v test/duplicates_with_spaces.fasta
+echo "Returned: $?"
+
+echo "A fasta file with stop codon in the middle"
+./fasta_validate -v test/bad_with_stop_codons.fasta;
 echo "Returned: $?"
 
 echo "A fasta file with php code in the middle. Yes, we've seen this!"

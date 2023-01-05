@@ -8,7 +8,7 @@ The simple rules that we adhere to are:
 
 1. Each header line starts with a `>`. The header preceedes the sequence.
 2. Every other line is considered a sequence line
-3. Sequence lines may not contain whitespace, numbers, or non-sequence characters. In other words, they must only contain the characters [A-Z] and [a-z]
+3. Sequence lines may not contain whitespace, numbers, or non-sequence characters. In other words, they must only contain the characters [A-Z], [a-z] and `.` or `*` as the last character.
 4. Sequence lines can end with a new line or return depending on whether you have edited this file on a mac, pc, or linux machine.
 5. Sequence lines can be empty.
 6. The sequence identifier is the string of characters in the header line following the `>` and upto the first whitespace. Everything after the first whitespace is descriptive, and can be as long as you like

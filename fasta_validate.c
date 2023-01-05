@@ -7,7 +7,7 @@
  *	0: this is a valid fasta file
  *	1: the first line does not start with a >
  *	2: the ids are not unique
- *	4: lines in the sequence (that do not start >) contain characters that do not match the perl regexp /[A-Z][a-z] /
+ *	4: lines in the sequence (that do not start >) contain characters that do not match the perl regexp /[A-Z][a-z] / with the exception that the last character can be a stop codon (. or *)
  *
  *	Over 200:
  *	internal errors, eg. unable to allocate memory, etc.
@@ -37,6 +37,13 @@ int contains_non_word_characters(char *seq, int verbose) {
 	}
 
 	for (int i=0; i<strlen(seq); i++) {
+
+		if (i == (strlen(seq)-2)) {
+			if ((((int) seq[i]) == 46) || (((int) seq[i]) == 42)) {
+				continue;
+			}
+		}
+
 		if ((int) seq[i] < 65) {
 			if (((int) seq[i] != 10) && ((int) seq[i] != 13))
 				return 1;
